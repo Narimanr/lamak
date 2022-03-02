@@ -10,8 +10,6 @@ import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';
 import { signupRouter } from './routes/signup';
 
-
-
 const app = express();
 // traffic is being proxied through nginx
 app.set('trust proxy', true);
