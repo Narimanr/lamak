@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the image
-        run: cd tickets && docker build . --file Dockerfile --tag narimanr/lamak-auth
+        run: cd auth && docker build . --file Dockerfile --tag narimanr/lamak-auth
       - name: Login to docker
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
