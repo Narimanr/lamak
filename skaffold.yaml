@@ -1,0 +1,36 @@
+apiVersion: skaffold/v2beta21
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: narimanr/lamak-auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: narimanr/lamak-designer
+      context: designer
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: narimanr/lamak-client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        infer:
+          - "**/*.ts"
+          - "**/*.tsx"
+          - "**/*.scss"
+          - "**/*.css"

@@ -1,0 +1,8 @@
+@use "sass:math";
+
+@use "/app/styles/abstract/" as *;
+@use "/app/styles/system";
+
+.Main {
+	margin-top: 7.5rem; //For navbar
+}

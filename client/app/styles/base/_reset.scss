@@ -1,0 +1,110 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+/* Cross-platform generic font family (default user interface font)*/
+body,
+* {
+	font-family: system-ui,
+		// Safari for macOS and iOS (San Francisco)
+		-apple-system,
+		// Windows
+		"Segoe UI",
+		// Android
+		Roboto,
+		// Basic web fallback
+		"Helvetica Neue",
+		Arial,
+		// Linux
+		"Noto Sans",
+		"Liberation Sans",
+		// Sans serif fallback
+		sans-serif,
+		// Emoji fonts
+		"Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	//causes issues with swiper navigation button
+	// text-rend ering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

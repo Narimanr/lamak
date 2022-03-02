@@ -1,0 +1,55 @@
+@use "sass:math";
+
+@use "/app/styles/abstract/" as *;
+@use "/app/styles/system";
+
+.tableRow {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 0 3em 0;
+	padding: 0;
+	position: relative;
+
+	@include desktop {
+		margin: unset;
+	}
+}
+
+.tableCell {
+	box-sizing: border-box;
+	flex-grow: 1;
+	width: 100%;
+	padding: 0.8rem 1.2rem;
+
+	border: solid 1px #e2e6e9;
+	background-color: #fff;
+	display: flex;
+	align-items: baseline;
+
+	@include desktop {
+		flex: 1 1 20%;
+	}
+
+	.label {
+		font-weight: 600;
+		display: inline-block;
+	}
+
+	.number {
+		padding: 0 0.5rem;
+		font-size: 1.6rem;
+	}
+
+	.unit {
+		font-size: 1.1rem;
+	}
+}
+
+.tableHead {
+	@extend .tableCell;
+	background-color: hslac($clr-grey);
+	border-color: hslac($clr-dark-grey);
+	color: white;
+	max-width: 3rem;
+	text-align: center;
+}

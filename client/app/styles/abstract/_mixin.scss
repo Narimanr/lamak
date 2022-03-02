@@ -1,0 +1,49 @@
+/*
+Media query manager
+0 - 600px: Phone
+600 - 900px: Tablet portrait
+900 - 1200px: Tablet landscape
+[1200 - 1800]: Desktop, is where our normal styles apply
+1800px+: Big desktop
+
+$breakpoint argument chooices:
+-phone
+-tab-port
+-tab-land
+-big-desktop
+*/
+
+$tab-port: 37.5rem;
+$tab-land: 56.25rem;
+$desktop: 75rem;
+$big-desktop: 112.5rem;
+
+@mixin tab-port {
+	@media (min-width: #{$tab-port}) {
+		@content;
+	}
+}
+
+@mixin tab-land {
+	@media (min-width: #{$tab-land}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$desktop}) {
+		@content;
+	}
+}
+
+@mixin big-desktop {
+	@media (min-width: #{$big-desktop}) {
+		@content;
+	}
+}
+
+@mixin print {
+	@media print {
+		@content;
+	}
+}

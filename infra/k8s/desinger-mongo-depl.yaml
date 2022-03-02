@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: designer-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: designer-mongo
+  template:
+    metadata:
+      labels:
+        app: designer-mongo
+    spec:
+      volumes:
+        - name: designer-mongo-storage
+          persistentVolumeClaim:
+            claimName: designer-mongo-pvc
+      containers:
+        - name: designer-mongo
+          image: mongo
+          volumeMounts:
+            - name: designer-mongo-storage
+              mountPath: /data/db
+              subPath: designer-mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: designer-mongo-srv
+spec:
+  selector:
+    app: designer-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

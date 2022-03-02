@@ -1,0 +1,39 @@
+@use "./font-face";
+
+*,
+html,
+p {
+	font-family: iransansx, "Open Sans", sans-serif;
+	-moz-font-feature-settings: "ss02";
+	-webkit-font-feature-settings: "ss02";
+	font-feature-settings: "ss02";
+}
+
+@supports (font-variation-settings: normal) {
+	p {
+		font-family: "iransansxv", "Open Sans", sans-serif;
+		-moz-font-feature-settings: "ss02";
+		-webkit-font-feature-settings: "ss02";
+		font-feature-settings: "ss02";
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Roboto", iransansx, sans-serif !important;
+}
+
+@supports (font-variation-settings: normal) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Roboto", "iransansxv", sans-serif !important;
+	}
+}

@@ -1,0 +1,82 @@
+@use "sass:math";
+
+@use "/app/styles/abstract/" as *;
+@use "/app/styles/system";
+
+.card {
+	background: linear-gradient(
+		to right,
+		hsla(0, 0%, 97%, 0.25),
+		hsla(0, 0%, 100%, 0.25)
+	);
+	box-shadow: 0 8px 32px 0 rgba(241, 241, 247, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 2px solid rgba(255, 255, 255, 0.938);
+	border-radius: system.$default-radius;
+	box-shadow: $box-shadow;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: $hover-shadow;
+	}
+
+	// @include desktop {
+	// 	min-width: 20rem;
+	// 	max-width: 40rem;
+	// }
+
+	& > * {
+		padding: math.div(system.$default-gap, 2) system.$default-gap;
+	}
+	// border: 1px solid black;
+
+	&Body {
+		display: flex;
+		flex-direction: row;
+		gap: system.$default-gap;
+
+		@include desktop {
+			flex-direction: column;
+		}
+		& > * {
+			padding-bottom: system.$default-gap;
+		}
+		.imageBox {
+			min-height: 20rem;
+			width: 75%;
+			position: relative;
+
+			@include desktop {
+				width: 100%;
+			}
+		}
+
+		.text {
+			display: flex;
+			flex-direction: column;
+			gap: system.$default-gap;
+			align-items: center;
+			color: #fff;
+
+			.title {
+				display: block;
+				font-size: 1.6rem;
+				font-weight: 700;
+
+				@include desktop {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"baseUrl": ".",
+		"paths": {
+			"@/components/*": ["app/components/*"],
+			"@/interfaces/*": ["app/interfaces/*"],
+			"@/enums/*": ["app/enums/*"],
+			"@/style/*": ["app/styles/*"],
+			"@/public/*": ["public/*"],
+			"@/element/*": ["app/components/element/*"],
+			"@/layout/*": ["app/components/layout/*"],
+			"@/template/*": ["app/components/template/*"],
+			"@/redux/*": ["app/redux/*"],
+			"@/helper/*": ["app/helper/*"],
+			"@/DB/*": ["app/database/*"]
+		},
+		"incremental": true
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"app/components/layout/Main/Layout.tsx",
+		"pages/api/auth/[...nextauth].ts"
+	],
+	"exclude": ["node_modules"]
+}

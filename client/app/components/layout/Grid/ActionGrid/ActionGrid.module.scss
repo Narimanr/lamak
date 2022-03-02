@@ -1,0 +1,30 @@
+@use "/app/styles/abstract/" as *;
+@use "/app/styles/system";
+
+.actionGrid {
+	.gridDisplay {
+		display: grid;
+		gap: system.$default-gap;
+		grid-template-columns: repeat(1, minmax(20rem, 1fr));
+		grid-template-rows: auto;
+
+		@include tab-port {
+			grid-template-columns: repeat(2, minmax(10rem, 1fr));
+			justify-items: center;
+		}
+
+		@include desktop {
+			grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+			justify-items: center;
+		}
+
+		& > * {
+			width: 100%;
+			min-width: 0;
+
+			@include desktop {
+				width: 100%;
+			}
+		}
+	}
+}

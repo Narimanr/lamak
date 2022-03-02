@@ -1,0 +1,118 @@
+@use "sass:math";
+
+@use "/app/styles/abstract/" as *;
+@use "/app/styles/system";
+
+.DesignerGrid {
+	direction: rtl;
+	display: grid;
+	// grid-auto-rows: minmax(1fr, max-content);
+	grid-auto-rows: auto;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas: "authBox";
+
+	background: url("/images/actions/background.png") center no-repeat,
+		linear-gradient(
+			to right,
+			hsl(234, 25%, 92%),
+			hsl(220, 29%, 91%),
+			hsl(220, 33%, 90%)
+		);
+	background-size: cover;
+
+	// all items be 100%;
+	& > * {
+		// width: 100vw;
+		margin: (system.$default-gap * 2) system.$mobile-padding;
+
+		@include desktop {
+			margin: (system.$default-gap * 2) system.$desktop-padding;
+		}
+	}
+
+	.wrapper {
+		grid-area: authBox;
+		// background-color: hslac($background-white);
+		border-radius: system.$default-radius;
+		padding: system.$default-gap;
+		box-shadow: $box-shadow;
+		display: flex;
+		flex-direction: column;
+		gap: system.$default-gap;
+
+		background: linear-gradient(
+			to right,
+			hsl(0, 0%, 97%),
+			hsla(0, 0%, 100%, 0.25)
+		);
+		box-shadow: 0 8px 32px 0 rgba(241, 241, 247, 0.37);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		border-radius: 10px;
+		border: 2px solid rgba(255, 255, 255, 0.938);
+
+		@include desktop {
+			padding: math.div(system.$default-gap, 2);
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: system.$default-gap;
+
+			& > * {
+				flex: 1 1 50%;
+			}
+
+			@include desktop {
+				flex-direction: row;
+			}
+
+			.image {
+				background-color: hslac($clr-dark-blue);
+				border-radius: system.$default-radius;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				padding: system.$default-gap * 4;
+
+				&Container {
+					position: relative;
+					min-height: 60vh;
+					width: 100%;
+				}
+
+				@include desktop {
+					display: flex;
+				}
+			}
+
+			.form {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				.message {
+					text-align: center;
+					margin-bottom: (system.$default-gap);
+
+					.header {
+						font-size: 3rem;
+						font-weight: 500;
+						display: block;
+						margin-bottom: system.$default-gap;
+					}
+
+					.help {
+						font-size: 1.6rem;
+					}
+				}
+
+				.formWrapper {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
