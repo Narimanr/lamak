@@ -1,0 +1,22 @@
+name: deploy-auth
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "auth/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the image
+        run: cd tickets && docker build . --file Dockerfile --tag narimanr/lamak-auth
+      - name: Login to docker
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - name: push to docker
+        run: docker push narimanr/lamak-auth
