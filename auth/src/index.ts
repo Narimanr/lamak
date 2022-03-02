@@ -2,6 +2,8 @@ import { app } from './app';
 
 import mongoose from 'mongoose';
 
+// unncecessary comment
+
 const start = async () => {
     // check env variable is defined
     if (!process.env.JWT_KEY) {
