@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 16m
 spec:
   rules:
-    - host: kamalahangaran.com
+    - host: www.kamalahangaran.com
       http:
         paths:
           - path: /api/users/?(.*)

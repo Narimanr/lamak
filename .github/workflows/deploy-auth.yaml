@@ -18,5 +18,5 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - name: push to docker
+      - name: Push to docker
         run: docker push narimanr/lamak-auth
