@@ -1,3 +1,4 @@
+# github cicd
 name: deploy-manifests
 on:
   push:
