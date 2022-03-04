@@ -18,7 +18,7 @@ jobs:
           password: "nariman1994"
           port: 22
           script: |
-            microk8s kubectl apply -f infra/k8s --insecure-skip-tls-verify &&  microk8s kubectl apply -f infra/k8s-prod --insecure-skip-tls-verify
+            sudo microk8s kubectl apply -f infra/k8s --insecure-skip-tls-verify && sudo microk8s kubectl apply -f infra/k8s-prod --insecure-skip-tls-verify
       # - name: Login to Server and get context
       #   run: doctl kubernetes cluster kubeconfig save ticketing
       # - name: Apply updated manifest
