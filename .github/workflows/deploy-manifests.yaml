@@ -15,7 +15,7 @@ jobs:
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
-          password: "nariman1994"
+          password: "${{ secrets.SERVER_SSH }}"
           port: 22
           script: |
             sudo microk8s kubectl apply -f infra/k8s --insecure-skip-tls-verify && sudo microk8s kubectl apply -f infra/k8s-prod --insecure-skip-tls-verify
