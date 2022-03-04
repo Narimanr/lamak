@@ -18,7 +18,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH }}
           port: 22
           script: |
-            microk8s kubectl apply -f infra/k8s && microk8s kubectl apply -f infra/k8s-prod
+            sudo microk8s kubectl apply -f infra/k8s && sudo microk8s kubectl apply -f infra/k8s-prod
       # - name: Login to Server and get context
       #   run: doctl kubernetes cluster kubeconfig save ticketing
       # - name: Apply updated manifest
