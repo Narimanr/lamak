@@ -15,10 +15,10 @@ jobs:
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH }}
+          password: "nariman1994"
           port: 22
           script: |
-            kubectl apply -f infra/k8s --insecure-skip-tls-verify &&  kubectl apply -f infra/k8s-prod --insecure-skip-tls-verify
+            microk8s kubectl apply -f infra/k8s --insecure-skip-tls-verify &&  microk8s kubectl apply -f infra/k8s-prod --insecure-skip-tls-verify
       # - name: Login to Server and get context
       #   run: doctl kubernetes cluster kubeconfig save ticketing
       # - name: Apply updated manifest
